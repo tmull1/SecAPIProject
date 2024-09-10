@@ -2,6 +2,7 @@ package org.example.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -10,6 +11,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)  // Enable method-level security
 public class SecurityConfig {
 
     private final UserAuthenticationEntryPoint userAuthenticationEntryPoint;
@@ -29,7 +31,7 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/register", "/api/login").permitAll()  // Allow register and login endpoints
+                                .requestMatchers("/api/register", "/api/login", "/api/token").permitAll()  // Allow public access to registration, login, and token generation
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManagement ->
@@ -39,7 +41,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
 }
 
 
