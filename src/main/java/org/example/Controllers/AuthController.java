@@ -36,6 +36,17 @@ public class AuthController {
         user.setToken(userAuthProvider.createToken(user.getUsername()));
         return ResponseEntity.ok(user);
     }
+
+    @PostMapping("/token")
+    public ResponseEntity<String> generateToken(@RequestBody LoginRequestDto loginRequest) {
+        // Validate login request or do other necessary checks
+        User user = userService.login(loginRequest);
+
+        // Generate and return a token if login is valid
+        String token = userAuthProvider.createToken(user.getUsername());
+        return ResponseEntity.ok(token);
+    }
+
 }
 
 
