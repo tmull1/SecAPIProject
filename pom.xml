@@ -49,6 +49,12 @@
             <version>4.4.0</version>
         </dependency>
 
+        <!-- OAuth2 Client for handling OAuth2 authentication -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+
         <!-- Spring Boot DevTools for hot reloading (optional but recommended for development) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -84,4 +90,6 @@
     </build>
 
 </project>
+
+
 
