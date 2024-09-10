@@ -1,5 +1,10 @@
-package org.example;
+package org.example.Controllers;
 
+import org.example.Config.UserAuthProvider;
+import org.example.Dto.LoginRequestDto;
+import org.example.Dto.SignupRequestDto;
+import org.example.Model.User;
+import org.example.Services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Dto;
 
 public class SignupRequestDto {
     private String username;

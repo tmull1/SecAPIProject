@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Spring Boot Parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -14,9 +16,10 @@
     <artifactId>SecAPI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SecAPI</name>
-    <description>SecAPI</description>
+    <description>SecAPI Application</description>
 
     <properties>
+        <!-- Set Java version -->
         <java.version>17</java.version>
     </properties>
 
@@ -46,7 +49,7 @@
             <version>4.4.0</version>
         </dependency>
 
-        <!-- Spring Boot Developer Tools for hot reloading (optional) -->
+        <!-- Spring Boot DevTools for hot reloading (optional but recommended for development) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -54,7 +57,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Testing Dependencies -->
+        <!-- Testing dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -67,6 +70,7 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -80,3 +84,4 @@
     </build>
 
 </project>
+

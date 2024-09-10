@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Dto;
 
 public class LoginRequestDto {
     private final String username;

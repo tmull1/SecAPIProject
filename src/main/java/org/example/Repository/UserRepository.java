@@ -1,5 +1,6 @@
-package org.example;
+package org.example.Repository;
 
+import org.example.Model.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

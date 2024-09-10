@@ -1,5 +1,9 @@
-package org.example;
+package org.example.Services;
 
+import org.example.Dto.LoginRequestDto;
+import org.example.Dto.SignupRequestDto;
+import org.example.Model.User;
+import org.example.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
