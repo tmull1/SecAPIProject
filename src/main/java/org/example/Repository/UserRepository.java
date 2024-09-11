@@ -3,31 +3,35 @@ package org.example.Repository;
 import org.example.Model.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Repository
 public class UserRepository {
 
-    private User[] users = {
-            new User("admin", "admin", new String[] {"USER", "ADMIN"}),
-            new User("user", "user", new String[] {"USER"})
-    };
+    private List<User> users = new ArrayList<>(Arrays.asList(
+            new User("admin", "admin", new String[]{"USER", "ADMIN"}),
+            new User("user", "user", new String[]{"USER"})
+    ));
 
     public User findByUsername(String username) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                return user;  // If found, return the user
-            }
-        }
-        return null;  // If no user is found, return null
+        return users.stream()
+                .filter(user -> user.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
     }
 
     public User addUser(User user) {
-        User[] newUsers = new User[users.length + 1];
-        System.arraycopy(users, 0, newUsers, 0, users.length);
-        newUsers[users.length] = user;
-        users = newUsers;
+        users.add(user);
         return user;
     }
+
+    public void deleteByUsername(String username) {
+        users.removeIf(user -> user.getUsername().equals(username));
+    }
 }
+
 
 
 
